@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAMIE LUXE | Premium Fashion</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body{
+  background:#f8f8f8;
+  color:#222;
+}
+
+header{
+  background:#000;
+  color:#fff;
+  padding:20px;
+  text-align:center;
+}
+
+header h1{
+  letter-spacing:3px;
+  font-size:28px;
+}
+
+header p{
+  opacity:0.8;
+  font-size:14px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
+.product{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  background:#f4f0f0;
+  padding:20px;
+  border-radius:10px;
+}
+
+.product img{
+  width:100%;
+  max-width:400px;
+  border-radius:10px;
+}
+
+.details{
+  flex:1;
+}
+
+.details h2{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.price{
+  font-size:22px;
+  color:#000;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.details p{
+  margin-bottom:15px;
+  color:#555;
+}
+
+label{
+  font-weight:600;
+  display:block;
+  margin:10px 0 5px;
+}
+
+select, input{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+button{
+  margin-top:20px;
+  background:#000;
+  color:#fff;
+  border:none;
+  padding:15px;
+  width:100%;
+  font-size:16px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#333;
+}
+
+footer{
+  text-align:center;
+  padding:15px;
+  font-size:13px;
+  color:#777;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .product{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>BAMIE LUXE</h1>
+  <p>Luxury Fashion • Nationwide Delivery in Nigeria</p>
+</header>
+
+<div class="container">
+  <div class="product">
+    
+    <!-- PRODUCT IMAGE -->
+    <img src="BAMIE.jpg" alt="Bamie Luxe Collection">
+
+    <!-- PRODUCT DETAILS -->
+    <div class="details">
+      <h2>BAMIE LUXE Premium Boxer</h2>
+      <div class="price">$15</div>
+
+      <p>Luxury comfort meets premium design. Available for delivery to all states in Nigeria.</p>
+
+      <label>Size</label>
+      <select id="size">
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+        <option>X-Large</option>
+      </select>
+
+      <label>Quantity</label>
+      <input type="number" id="qty" value="1" min="1">
+
+      <label>Delivery State (Nigeria)</label>
+      <input type="text" id="state" placeholder="Enter your state">
+
+      <button onclick="orderNow()">Order via WhatsApp</button>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2026 BAMIE LUXE • WhatsApp Orders Only
+</footer>
+
+<script>
+function orderNow(){
+  let size = document.getElementById("size").value;
+  let qty = document.getElementById("qty").value;
+  let state = document.getElementById("state").value;
+
+  if(state === ""){
+    alert("Please enter your delivery state");
+    return;
+  }
+
+  let message = 
+  "Hello BAMIE LUXE,%0A%0A" +
+  "I want to order:%0A" +
+  "Product: BAMIE LUXE Premium Boxer%0A" +
+  "Price: $15%0A" +
+  "Size: " + size + "%0A" +
+  "Quantity: " + qty + "%0A" +
+  "Delivery State: " + state;
+
+  let phone = "2349132783118";
+  let url = "https://wa.me/" + phone + "?text=" + message;
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
